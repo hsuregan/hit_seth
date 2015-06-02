@@ -44,7 +44,7 @@ always @(posedge clk or posedge rst or posedge freq)
 begin
 	if(rst) counter <= 0;
 	else if(freq) counter <= 1;
-	else if(counter_w == 10) counter <= 0; //counter_w = 100000000
+	else if(counter_w == 100000000) counter <= 0; //counter_w = 100000000
 	else if(counter_w == 0) counter <= 0; //not necessary, ensure idle stays idle
 	else if(counter_w > 0) counter <= counter +1;
 end
@@ -91,12 +91,12 @@ always @(posedge clk or negedge clk or posedge rst) begin
     end else if(!counter_w) begin //LED is off, user doesn't do anything
 		hit_reg <= 0;
 		miss_reg <= 0;
-	end else if((counter_w > 9) && (changed_bit == LEDnumber_w)) begin
+	end else if((counter_w > 99999999) && (changed_bit == LEDnumber_w)) begin
 		//100000000 - check on last clock cycle
         hit_reg <= 1;
 		miss_reg <= 0;
     
-	end /*else if((!counter_w) && (changed_bit != LEDnumber) && (counter_w > 8)) begin
+	end /*else if((!counter_w) && (changed_bit != LEDnumber) && (counter_w > 99999999)) begin
 		hit_reg <= 0;
 		miss_reg <= 1;
 	

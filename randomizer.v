@@ -27,7 +27,6 @@ assign LED_val = LED;
 always @(posedge clk or posedge rst) begin
 	if(rst) begin 
         LED <= 0;
-        LED_out <= 8'b00001000;
 	end
     else if(freq) begin
 		LED <= {rnd[2:0]};
